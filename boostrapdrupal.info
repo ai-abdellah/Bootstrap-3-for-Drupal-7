@@ -1,0 +1,19 @@
+name = Bootstrap 3 for Drupal 7
+description = Theme for Drupal 7 based on Bootstrap 3.x
+core = 7.x
+
+stylesheets[all][] = css/default.css
+
+regions[header] = Header
+regions[highlighted] = Highlighted
+regions[help] = Help
+regions[slideshow] = Slideshow
+regions[content] = Content (Top)
+regions[content_bottom] = Content (Bottom)
+regions[sidebar_first] = Left sidebar
+regions[sidebar_second] = Right sidebar
+regions[footer] = Footer
+
+settings[toggle_node_user_picture] = 0
+settings[toggle_comment_user_picture] = 0
+settings[toggle_comment_user_verification] = 0
