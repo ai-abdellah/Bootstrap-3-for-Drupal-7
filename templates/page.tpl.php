@@ -35,15 +35,10 @@
    <?php print render($page['slideshow']); ?>
   </div>
   <?php endif; ?>
-  <?php if ($page['sidebar_first']): ?>
-  <div class="col-md-3 sidebar sidebar-first">
-   <?php print render($page['sidebar_first']); ?>
-  </div>
-  <?php endif; ?>
   <?php if($page['sidebar_first'] && $page['sidebar_second']) { ?>
-  <div class="col-md-6">
+  <div class="col-md-6 col-md-push-3">
   <?php } elseif($page['sidebar_first'] || $page['sidebar_second']) { ?>
-  <div class="col-md-9">
+  <div class="col-md-9 col-md-push-3">
   <?php } ?>
    <?php if (isset($tabs)): ?><div class="tabs"><?php print render($tabs); ?></div><?php endif; ?>
    <?php print render($page['help']); ?>
@@ -54,6 +49,11 @@
     <?php print render($page['content_bottom']); ?>
    <?php endif; ?>
   </div>
+  <?php if ($page['sidebar_first']): ?>
+  <div class="col-md-3 col-md-pull-6 sidebar sidebar-first">
+   <?php print render($page['sidebar_first']); ?>
+  </div>
+  <?php endif; ?>
   <?php if ($page['sidebar_second']): ?>
   <div class="col-md-3 sidebar sidebar-second">
    <?php print render($page['sidebar_second']); ?>
@@ -63,13 +63,9 @@
  <div class="push"></div>
 </div><!-- /.container -->
 
+
 <div id="footer">
  <div class="container text-muted">
    <?php print render($page['footer']); ?>
  </div>
 </div>
-      <?php  /*if ($logo): ?>
-        <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo">
-          <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
-        </a>
-      <?php endif; */ ?>
