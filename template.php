@@ -1,6 +1,6 @@
 <?php
 
-function cbcare_preprocess_page(&$variables) {
+function boostrapdrupal_preprocess_page(&$variables) {
  switch (current_path()) {
   case 'user/login':
    $variables['title'] = 'Accesso';
@@ -16,42 +16,42 @@ function cbcare_preprocess_page(&$variables) {
   }
 }
 
-function cbcare_theme() {
+function boostrapdrupal_theme() {
  $items = array();
  $items['user_login'] = array(
   'render element' => 'form',
-  'path' => drupal_get_path('theme', 'cbcare') . '/templates',
+  'path' => drupal_get_path('theme', 'boostrapdrupal') . '/templates',
   'template' => 'user-login',
   'preprocess functions' => array(
-     'cbcare_preprocess_user_login'
+     'boostrapdrupal_preprocess_user_login'
   ),
  );
  $items['user_register_form'] = array(
   'render element' => 'form',
-  'path' => drupal_get_path('theme', 'cbcare') . '/templates',
+  'path' => drupal_get_path('theme', 'boostrapdrupal') . '/templates',
   'template' => 'user-register-form',
   'preprocess functions' => array(
-   'cbcare_preprocess_user_register_form'
+   'boostrapdrupal_preprocess_user_register_form'
   ),
  );
  $items['user_pass'] = array(
   'render element' => 'form',
-  'path' => drupal_get_path('theme', 'cbcare') . '/templates',
+  'path' => drupal_get_path('theme', 'boostrapdrupal') . '/templates',
   'template' => 'user-pass',
   'preprocess functions' => array(
-   'cbcare_preprocess_user_pass'
+   'boostrapdrupal_preprocess_user_pass'
   ),
  );
  return $items;
 }
 
-function cbcare_preprocess_user_login(&$variables) {
+function boostrapdrupal_preprocess_user_login(&$variables) {
  $variables['form']['#attributes']['class'][] = 'form-horizontal';
 }
-function cbcare_preprocess_user_register_form(&$variables) { }
-function cbcare_preprocess_user_pass(&$variables) { }
+function boostrapdrupal_preprocess_user_register_form(&$variables) { }
+function boostrapdrupal_preprocess_user_pass(&$variables) { }
 
-function cbcare_button($variables) {
+function boostrapdrupal_button($variables) {
   $element = $variables['element'];
   $element['#attributes']['type'] = 'submit';
   element_set_attributes($element, array('id', 'name', 'value'));
@@ -70,7 +70,7 @@ function cbcare_button($variables) {
   return '<button' . drupal_attributes($element['#attributes']) . '>'.$element['#attributes']['value'].'</button>';
 }
 
-function cbcare_textfield($variables) {
+function boostrapdrupal_textfield($variables) {
  $element = $variables['element'];
  $output = '';
  if($element['#name'] == 'name' && current_path() == 'user/login')
@@ -107,7 +107,7 @@ function cbcare_textfield($variables) {
  return $output . $extra;
 }
 
-function cbcare_password($variables) {
+function boostrapdrupal_password($variables) {
  $element = $variables['element'];
  $element['#attributes']['type'] = 'password';
  element_set_attributes($element, array('id', 'name', 'size', 'maxlength'));
@@ -126,7 +126,7 @@ function cbcare_password($variables) {
  return $output;
 }
 
-function cbcare_textarea($variables) {
+function boostrapdrupal_textarea($variables) {
  $element = $variables['element'];
  element_set_attributes($element, array('id', 'name', 'cols', 'rows'));
  _form_set_class($element, array('form-textarea'));
@@ -149,7 +149,7 @@ function cbcare_textarea($variables) {
  return $output;
 }
 
-function cbcare_form_element($variables) {
+function boostrapdrupal_form_element($variables) {
  $element = &$variables['element'];
  
  $element += array(
@@ -207,18 +207,18 @@ function cbcare_form_element($variables) {
   return $output;
 }
 
-function cbcare_form_alter(&$form, &$form_state, $form_id) {
+function boostrapdrupal_form_alter(&$form, &$form_state, $form_id) {
  if($form_id == 'user_login') {
   $form['name']['#description'] = '';
   $form['pass']['#description'] = '';
  }
 }
 
-function cbcare_html_head_alter(&$head_elements) {
+function boostrapdrupal_html_head_alter(&$head_elements) {
   unset($head_elements['system_meta_generator']);
 }
 
-function cbcare_preprocess_image(&$variables) {
+function boostrapdrupal_preprocess_image(&$variables) {
  
  if (isset($variables['style_name'])) {
   if($variables['style_name'] == 'marchio')
@@ -228,8 +228,8 @@ function cbcare_preprocess_image(&$variables) {
  }
 }
 
-function cbcare_js_alter(&$javascript) {
-  $jquery_path = drupal_get_path('theme','cbcare') . '/js/jquery-1.11.0.min.js';
+function boostrapdrupal_js_alter(&$javascript) {
+  $jquery_path = drupal_get_path('theme','boostrapdrupal') . '/js/jquery-1.11.0.min.js';
 
   $javascript[$jquery_path] = $javascript['misc/jquery.js'];
   $javascript[$jquery_path]['version'] = '1.11.0';
@@ -238,7 +238,7 @@ function cbcare_js_alter(&$javascript) {
   unset($javascript['misc/jquery.js']);
 }
 
-function cbcare_css_alter(&$css) {
+function boostrapdrupal_css_alter(&$css) {
  $exclude = array(
   'modules/field/theme/field.css' => FALSE,
   'modules/node/node.css' => FALSE,
@@ -252,11 +252,11 @@ function cbcare_css_alter(&$css) {
  $css = array_diff_key($css, $exclude);
 }
 
-function cbcare_menu_tree__main_menu(&$variables) {
-  return '<ul class="nav navbar-nav pull-right-md">' . $variables['tree'] . '</ul>';
+function boostrapdrupal_menu_tree__main_menu(&$variables) {
+ return '<ul class="nav navbar-nav pull-right-md">' . $variables['tree'] . '</ul>';
 }
 
-function cbcare_menu_link(array $variables) {
+function boostrapdrupal_menu_link(array $variables) {
   $element = $variables['element'];
   $sub_menu = '';
 
@@ -277,7 +277,7 @@ function cbcare_menu_link(array $variables) {
   return '<li' . drupal_attributes($element['#attributes']) . '>' . $output . $sub_menu . "</li>\n";
 }
 
-function cbcare_breadcrumb($variables) {
+function boostrapdrupal_breadcrumb($variables) {
   $breadcrumb = $variables['breadcrumb'];
   if (!empty($breadcrumb)) {
    $breadcrumb[] = drupal_get_title();
@@ -295,7 +295,7 @@ function cbcare_breadcrumb($variables) {
   }
 }
 
-function cbcare_status_messages($variables) {
+function boostrapdrupal_status_messages($variables) {
  $display = $variables['display'];
  $output = '';
 
@@ -340,7 +340,7 @@ function convert_status($type) {
  }
 }
 
-function cbcare_menu_local_tasks(&$variables) {
+function boostrapdrupal_menu_local_tasks(&$variables) {
  $output = '';
 
  if (!empty($variables['primary'])) {
