@@ -253,7 +253,7 @@ function cbcare_css_alter(&$css) {
 }
 
 function cbcare_menu_tree__main_menu(&$variables) {
-  return '<ul class="nav navbar-nav">' . $variables['tree'] . '</ul>';
+  return '<ul class="nav navbar-nav pull-right-md">' . $variables['tree'] . '</ul>';
 }
 
 function cbcare_menu_link(array $variables) {
