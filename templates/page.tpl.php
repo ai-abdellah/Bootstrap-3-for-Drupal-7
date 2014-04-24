@@ -37,8 +37,10 @@
   <?php endif; ?>
   <?php if($page['sidebar_first'] && $page['sidebar_second']) { ?>
   <div class="col-md-6 col-md-push-3">
-  <?php } elseif($page['sidebar_first'] || $page['sidebar_second']) { ?>
+  <?php } elseif($page['sidebar_first']) { ?>
   <div class="col-md-9 col-md-push-3">
+  <?php } elseif($page['sidebar_second']) { ?>
+  <div class="col-md-9">
   <?php } ?>
    <?php if (isset($tabs)): ?><div class="tabs"><?php print render($tabs); ?></div><?php endif; ?>
    <?php print render($page['help']); ?>
