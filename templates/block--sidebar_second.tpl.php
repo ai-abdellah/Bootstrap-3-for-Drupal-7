@@ -1,7 +1,7 @@
 <div id="<?php print $block_html_id; ?>" class="<?php print $classes; ?>"<?php print $attributes; ?>>
   <?php print render($title_prefix); ?>
 <?php if ($block->subject): ?>
-  <h3 class="bg-primary"><?php print $block->subject ?></h3>
+  <h4 class="text-muted"><?php print $block->subject ?></h4>
 <?php endif;?>
   <?php print render($title_suffix); ?>
 

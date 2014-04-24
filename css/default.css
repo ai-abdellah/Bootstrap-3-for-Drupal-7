@@ -9,8 +9,8 @@ body.toolbar > .navbar-fixed-top { position: relative; }
 #footer > .container { padding: 20px 0; text-align: center; font-size: 85%; }
 .item-list { list-style: none; padding: 0; margin: 0; }
 .item-list li { float: left; margin: 0 2% 2% 0; }
-.sidebar .block { border: 1px solid #428bca; border-radius: 4px; margin-bottom: 20px; }
-.sidebar .block h3 { padding: 15px; margin: 0; }
+.sidebar .block { background: #eee; border-radius: 4px; margin-bottom: 30px; }
+.sidebar .block h4 { padding: 15px 15px 10px; margin: 0; }
 .sidebar .block .menu { list-style: none; padding: 0; margin: 0; }
 .sidebar .block .menu a { display: block; padding: 5px 10px; border-bottom: 1px solid #428bca; }
 .sidebar .block .menu li.last a { border: 0; }

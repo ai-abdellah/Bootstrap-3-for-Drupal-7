@@ -252,6 +252,10 @@ function boostrapdrupal_css_alter(&$css) {
  $css = array_diff_key($css, $exclude);
 }
 
+function boostrapdrupal_menu_tree(&$variables) {
+ return '<ul class="nav nav-pills nav-stacked">' . $variables['tree'] . '</ul>';
+}
+
 function boostrapdrupal_menu_tree__main_menu(&$variables) {
  return '<ul class="nav navbar-nav pull-right-md">' . $variables['tree'] . '</ul>';
 }
@@ -272,6 +276,10 @@ function boostrapdrupal_menu_link(array $variables) {
    $element['#localized_options']['attributes']['class'][] = 'dropdown-toggle';
    $element['#localized_options']['attributes']['data-toggle'] = 'dropdown';
   }
+
+  $active_trail = array_search('active-trail',$element['#attributes']['class']);
+  if($active_trail)
+   $element['#attributes']['class'][$active_trail] = 'active';
 
   $output = l($element['#title'], $element['#href'], $element['#localized_options']);
   return '<li' . drupal_attributes($element['#attributes']) . '>' . $output . $sub_menu . "</li>\n";
