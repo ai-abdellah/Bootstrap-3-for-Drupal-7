@@ -15,3 +15,9 @@ body.toolbar > .navbar-fixed-top { position: relative; }
 .sidebar .block .menu a { display: block; padding: 5px 10px; border-bottom: 1px solid #428bca; }
 .sidebar .block .menu li.last a { border: 0; }
 .sidebar .block .menu li.active-trail a, .sidebar .block .menu li a:hover { background-color: #d9edf7; border-radius: 4px; }
+
+@media (min-width: 992px) {
+ .pull-right-md {
+   float: right;
+ }
+}
