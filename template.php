@@ -218,16 +218,6 @@ function boostrapdrupal_html_head_alter(&$head_elements) {
   unset($head_elements['system_meta_generator']);
 }
 
-function boostrapdrupal_preprocess_image(&$variables) {
- 
- if (isset($variables['style_name'])) {
-  if($variables['style_name'] == 'marchio')
-   $variables['attributes']['class'][] = 'img-thumbnail';
-  elseif ($variables['style_name'] == 'slideshow')
-   $variables['attributes']['class'][] = 'img-responsive';
- }
-}
-
 function boostrapdrupal_js_alter(&$javascript) {
   $jquery_path = drupal_get_path('theme','boostrapdrupal') . '/js/jquery-1.11.0.min.js';
 
